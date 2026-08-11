@@ -47,7 +47,7 @@ export function Skills() {
     <Section id="skills" label="Skills" title="The stack I reach for.">
       <div className="grid gap-4 sm:grid-cols-2">
         {GROUPS.map((g, i) => (
-          <Reveal key={g.title} delay={i * 70} className={i === 0 ? "sm:col-span-2" : undefined}>
+          <Reveal key={g.title} delay={i * 70} className={i === 0 ? "sm:col-span-2" : ""}>
             <article className="card-soft group h-full rounded-xl border border-border p-6 transition-colors duration-300 hover:border-primary/40">
               <div className="flex items-center gap-3">
                 <span className="rounded-md border border-border p-2 text-primary transition-colors group-hover:border-primary/40">
