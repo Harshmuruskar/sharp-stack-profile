@@ -45,7 +45,7 @@ export function Hero() {
         <h1 className="reveal text-5xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-7xl md:text-8xl"
             data-visible="true">
           Harsh{" "}
-          <span className="bg-gradient-to-r from-primary to-teal-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary via-primary to-primary/60 bg-clip-text text-transparent">
             Muruskar
           </span>
         </h1>
@@ -80,7 +80,7 @@ export function Hero() {
               size={16}
               className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
-            <span className="absolute inset-0 -translate-x-full bg-white/10 transition-transform duration-500 group-hover:translate-x-0" />
+            <span className="absolute inset-0 -translate-x-full bg-primary-foreground/10 transition-transform duration-500 group-hover:translate-x-0" />
           </a>
           <a
             href={resumeAsset.url}
