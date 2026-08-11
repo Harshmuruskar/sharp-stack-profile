@@ -1,12 +1,17 @@
 import { useState, type FormEvent } from "react";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, Send } from "lucide-react";
 import { Reveal } from "./reveal";
 import { Section } from "./section";
 
 const LINKS = [
-  { icon: Mail, label: "arjun@example.com", href: "mailto:arjun@example.com" },
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  {
+    icon: Mail,
+    label: "harshmuruskar786@gmail.com",
+    href: "mailto:harshmuruskar786@gmail.com",
+  },
+  { icon: Phone, label: "+91 93252 60228", href: "tel:+919325260228" },
+  { icon: Github, label: "github.com/Harshmuruskar", href: "https://github.com/Harshmuruskar" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/harshmuruskar" },
 ];
 
 export function Contact() {
