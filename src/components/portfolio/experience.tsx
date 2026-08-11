@@ -4,23 +4,31 @@ import { Section } from "./section";
 const ROLES = [
   {
     role: "Java Full Stack Developer",
-    company: "Tech company",
-    period: "2025 — Present",
-    detail:
-      "Building Spring Boot microservices and React interfaces, with AI-assisted tooling woven into the delivery workflow.",
+    company: "Koderz Technology",
+    period: "Mar 2026 — Present",
+    points: [
+      "Delivered 10+ full-stack features with React and Spring Boot (Java 21) on two-week Agile sprints.",
+      "Designed 15+ REST endpoints with consistent conventions, cutting integration time by ~30%.",
+      "Secured all user-facing endpoints with Spring Security and JWT.",
+      "Optimized Spring Data JPA + MySQL access layers, improving key response times by up to 40%.",
+      "Containerized services with Docker, reducing new-developer setup to under 15 minutes.",
+    ],
   },
   {
-    role: "Software Engineer Intern",
-    company: "Product startup",
-    period: "2024 — 2025",
-    detail:
-      "Shipped REST APIs, JWT-based auth flows, and internal dashboards used by the operations team.",
+    role: "Software Development Intern",
+    company: "Greateway Solution Pvt. Ltd.",
+    period: "Feb 2024 — Aug 2024",
+    points: [
+      "Contributed to 5+ web application modules across a six-month internship.",
+      "Wrote and debugged Java backend logic, resolving 20+ bug tickets alongside UI updates.",
+      "Took part in code reviews and daily stand-ups on a two-week Agile cadence.",
+    ],
   },
   {
     role: "B.Tech, Computer Science",
-    company: "University",
-    period: "2020 — 2024",
-    detail: "Focused on distributed systems, databases, and applied software engineering.",
+    company: "G.H. Raisoni College of Engineering",
+    period: "Graduated 2023",
+    points: ["Nagpur, Maharashtra, India."],
   },
 ];
 
@@ -39,9 +47,16 @@ export function Experience() {
             </p>
             <h3 className="mt-2 text-lg font-medium tracking-tight">{r.role}</h3>
             <p className="text-sm text-primary">{r.company}</p>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {r.detail}
-            </p>
+            <ul className="mt-4 max-w-2xl space-y-2">
+              {r.points.map((p) => (
+                <li
+                  key={p}
+                  className="relative pl-5 text-sm leading-relaxed text-muted-foreground before:absolute before:top-[0.7em] before:left-0 before:h-px before:w-2.5 before:bg-border"
+                >
+                  {p}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         ))}
       </ol>

@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 export function Hero() {
   return (
@@ -10,16 +11,25 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
-        <p className="reveal font-mono text-xs tracking-[0.2em] text-primary uppercase" data-visible="true">
+        <p
+          className="reveal font-mono text-xs tracking-[0.2em] text-primary uppercase"
+          data-visible="true"
+        >
           Available for work
         </p>
         <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl md:text-7xl">
-          Arjun Mehta
+          Harsh Muruskar
           <span className="block text-muted-foreground">Java Full Stack Developer</span>
         </h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          I build scalable full-stack systems — Spring Boot services and React interfaces —
-          shipped faster with modern AI-assisted engineering workflows.
+        <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          I build AI-integrated full-stack systems — Spring Boot services, secure REST APIs and
+          React interfaces — from database schema to responsive UI, with clean,
+          production-ready code.
+        </p>
+
+        <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+          <MapPin size={15} className="text-primary" aria-hidden />
+          Nagpur, Maharashtra, India
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -31,8 +41,8 @@ export function Hero() {
             <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5" />
           </a>
           <a
-            href="/resume.pdf"
-            download
+            href={resumeAsset.url}
+            download="Harsh_Muruskar_Resume.pdf"
             className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             <Download size={16} />
