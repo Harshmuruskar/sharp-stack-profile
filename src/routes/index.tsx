@@ -8,9 +8,9 @@ import { Experience } from "@/components/portfolio/experience";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
 
-const title = "Arjun Mehta — Java Full Stack Developer";
+const title = "Harsh Muruskar — Java Full Stack Developer";
 const description =
-  "Java Full Stack Developer building scalable Spring Boot services and React interfaces with AI-assisted engineering workflows.";
+  "Harsh Muruskar is a Java Full Stack Developer in Nagpur building AI-integrated Spring Boot, React and PostgreSQL applications.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

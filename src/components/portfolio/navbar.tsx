@@ -58,7 +58,7 @@ export function Navbar() {
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8"
       >
         <a href="#top" className="font-mono text-sm tracking-tight text-foreground">
-          <span className="text-primary">/</span>arjun.dev
+          <span className="text-primary">/</span>harsh.dev
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
