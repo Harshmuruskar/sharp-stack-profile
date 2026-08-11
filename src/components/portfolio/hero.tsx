@@ -3,58 +3,100 @@ import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-40 pb-28 md:pt-52 md:pb-40">
-      <div aria-hidden className="grid-backdrop pointer-events-none absolute inset-0" />
-      <div
-        aria-hidden
-        className="glow-orb pointer-events-none absolute -top-24 left-1/2 h-72 w-[46rem] -translate-x-1/2"
-      />
+    <section
+      id="top"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden py-32"
+    >
+      {/* Background treatments */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        {/* Deep radial glows */}
+        <div className="absolute -top-[10%] -left-[10%] h-[60%] w-[60%] rounded-full bg-primary/3 blur-[120px]" />
+        <div className="absolute -right-[10%] -bottom-[10%] h-[50%] w-[50%] rounded-full bg-primary/2 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
-        <p
-          className="reveal font-mono text-xs tracking-[0.2em] text-primary uppercase"
-          data-visible="true"
-        >
-          Available for work
-        </p>
-        <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl md:text-7xl">
-          Harsh Muruskar
-          <span className="block text-muted-foreground">Java Full Stack Developer</span>
+        {/* Noise texture */}
+        <div className="noise-overlay absolute inset-0" />
+
+        {/* Technical dot grid */}
+        <div className="dot-grid absolute inset-0" />
+
+        {/* Large watermark text */}
+        <div className="hero-watermark">Developer</div>
+      </div>
+
+      {/* Decorative side borders */}
+      <div aria-hidden className="hero-side-border left-8 hidden xl:block" />
+      <div aria-hidden className="hero-side-border right-8 hidden xl:block" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center lg:px-8">
+        {/* Availability badge */}
+        <div className="reveal mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-sm"
+             data-visible="true">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          </span>
+          <span className="font-mono text-xs font-semibold tracking-wider text-primary uppercase">
+            Available for work
+          </span>
+        </div>
+
+        {/* Name & title */}
+        <h1 className="reveal text-5xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-7xl md:text-8xl"
+            data-visible="true">
+          Harsh{" "}
+          <span className="bg-gradient-to-r from-primary to-teal-400 bg-clip-text text-transparent">
+            Muruskar
+          </span>
         </h1>
-        <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+
+        <p className="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+           data-visible="true">
+          Java Full Stack Developer
+        </p>
+
+        <p className="reveal mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground/80 md:text-lg"
+           data-visible="true">
           I build AI-integrated full-stack systems — Spring Boot services, secure REST APIs and
           React interfaces — from database schema to responsive UI, with clean,
           production-ready code.
         </p>
 
-        <p className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+        <p className="reveal mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground"
+           data-visible="true">
           <MapPin size={15} className="text-primary" aria-hidden />
           Nagpur, Maharashtra, India
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-3">
+        {/* CTAs */}
+        <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-3"
+             data-visible="true">
           <a
             href="#projects"
-            className="group inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform duration-200 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-[0_0_20px_color-mix(in_oklab,var(--primary)_30%,transparent)] transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_30px_color-mix(in_oklab,var(--primary)_45%,transparent)]"
           >
-            View Projects
-            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            <span className="relative z-10">View Projects</span>
+            <ArrowUpRight
+              size={16}
+              className="relative z-10 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+            <span className="absolute inset-0 -translate-x-full bg-white/10 transition-transform duration-500 group-hover:translate-x-0" />
           </a>
           <a
             href={resumeAsset.url}
             download="Harsh_Muruskar_Resume.pdf"
-            className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/50 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur-md transition-all duration-300 hover:bg-accent"
           >
             <Download size={16} />
             Download Resume
           </a>
         </div>
+      </div>
 
-        <div className="mt-20 flex items-center gap-3 text-xs text-muted-foreground">
-          <ArrowDown size={14} />
-          <span className="font-mono tracking-widest uppercase">Scroll</span>
-          <span className="h-px flex-1 bg-border" />
-        </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground/60">
+        <ArrowDown size={14} className="animate-bounce" />
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase">Scroll</span>
       </div>
     </section>
   );
