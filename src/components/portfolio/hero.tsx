@@ -16,7 +16,7 @@ export function Hero() {
           width={1920}
           height={1080}
           className="h-full w-full scale-110 object-cover opacity-50 blur-[120px] light:opacity-20"
-          fetchpriority="high"
+          fetchPriority="high"
         />
       </div>
 
