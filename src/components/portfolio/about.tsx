@@ -34,7 +34,7 @@ export function About() {
         </Reveal>
 
         <Reveal className="md:col-span-5" delay={120}>
-          <dl className="divide-y divide-border rounded-lg border border-border">
+          <dl className="glass-subtle divide-y divide-border rounded-xl">
             {FACTS.map((f) => (
               <div key={f.k} className="flex items-baseline justify-between gap-6 px-5 py-4">
                 <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">

@@ -50,7 +50,7 @@ export function Skills() {
           <Reveal key={g.title} delay={i * 70} className={i === 0 ? "sm:col-span-2" : ""}>
             <article className="card-soft group h-full rounded-xl border border-border p-6 transition-colors duration-300 hover:border-primary/40">
               <div className="flex items-center gap-3">
-                <span className="rounded-md border border-border p-2 text-primary transition-colors group-hover:border-primary/40">
+                <span className="glass-subtle rounded-md p-2 text-primary transition-colors group-hover:border-primary/40">
                   <g.icon size={16} aria-hidden />
                 </span>
                 <h3 className="text-sm font-medium tracking-tight">{g.title}</h3>
@@ -59,7 +59,7 @@ export function Skills() {
                 {g.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-2 rounded-md border border-border bg-secondary px-3 py-1.5 text-xs text-secondary-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                    className="glass-subtle flex items-center gap-2 rounded-md px-3 py-1.5 text-xs text-secondary-foreground transition-colors hover:border-primary/40 hover:text-foreground"
                   >
                     <BrandIcon name={item} size={14} className="shrink-0 opacity-90" />
                     {item}

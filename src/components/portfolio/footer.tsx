@@ -8,8 +8,8 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+    <footer className="py-12">
+      <div className="glass-panel mx-auto flex max-w-6xl flex-col gap-6 rounded-[2rem] px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Harsh Muruskar
@@ -24,7 +24,7 @@ export function Footer() {
               <a
                 href={s.href}
                 aria-label={s.label}
-                className="inline-flex rounded-md border border-border p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                className="glass-subtle inline-flex rounded-md p-2 text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
               >
                 <s.icon size={16} aria-hidden />
               </a>

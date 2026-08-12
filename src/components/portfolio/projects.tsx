@@ -51,7 +51,7 @@ export function Projects() {
                 {p.stack.map((t) => (
                   <li
                     key={t}
-                    className="flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1 font-mono text-[11px] text-muted-foreground"
+                    className="glass-subtle flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[11px] text-muted-foreground"
                   >
                     <BrandIcon name={t} size={12} className="shrink-0" />
                     {t}

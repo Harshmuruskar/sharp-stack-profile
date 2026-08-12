@@ -50,7 +50,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled && "border-b border-border bg-background/80 backdrop-blur-xl",
+        scrolled && "border-b border-border bg-background/40 backdrop-blur-2xl backdrop-saturate-150",
       )}
     >
       <nav
@@ -85,7 +85,7 @@ export function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label={light ? "Switch to dark mode" : "Switch to light mode"}
-            className="rounded-md border border-border p-2 text-muted-foreground transition-colors hover:text-foreground"
+            className="glass-subtle rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
           >
             {light ? <Moon size={16} /> : <Sun size={16} />}
           </button>
@@ -94,7 +94,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="rounded-md border border-border p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            className="glass-subtle rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
           >
             {open ? <X size={16} /> : <Menu size={16} />}
           </button>
@@ -102,7 +102,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <ul className="border-t border-border bg-background/95 px-6 py-3 backdrop-blur-xl md:hidden">
+        <ul className="border-t border-border bg-background/60 px-6 py-3 backdrop-blur-2xl backdrop-saturate-150 md:hidden">
           {SECTIONS.map((s) => (
             <li key={s.id}>
               <a

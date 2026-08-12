@@ -37,7 +37,7 @@ export function Contact() {
                   href={l.href}
                   className="group inline-flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <span className="rounded-md border border-border p-2 text-primary transition-colors group-hover:border-primary/40">
+                  <span className="glass-subtle rounded-md p-2 text-primary transition-colors group-hover:border-primary/40">
                     <l.icon size={15} aria-hidden />
                   </span>
                   {l.label}
@@ -50,7 +50,7 @@ export function Contact() {
         <Reveal className="md:col-span-7" delay={120}>
           <form
             onSubmit={onSubmit}
-            className="card-soft space-y-5 rounded-xl border border-border p-6 md:p-8"
+            className="glass-panel space-y-5 rounded-2xl p-6 md:p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <Field id="name" label="Name" type="text" placeholder="Your name" />
@@ -66,7 +66,7 @@ export function Contact() {
                 required
                 rows={5}
                 placeholder="What are you building?"
-                className="w-full resize-none rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring"
+                className="w-full resize-none glass-input rounded-md border border-input px-3 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring"
               />
             </div>
             <button
@@ -108,7 +108,7 @@ function Field({
         type={type}
         required
         placeholder={placeholder}
-        className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring"
+        className="w-full glass-input rounded-md border border-input px-3 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring"
       />
     </div>
   );
