@@ -8,22 +8,10 @@ export function Hero() {
       id="top"
       className="relative flex min-h-screen items-center justify-center overflow-hidden py-32"
     >
-      {/* Base background image */}
-      <div aria-hidden className="absolute inset-0 z-0">
-        <img
-          src={heroBgAsset.url}
-          alt=""
-          width={1920}
-          height={1080}
-          className="h-full w-full scale-110 object-cover opacity-50 blur-[120px] light:opacity-20"
-          fetchPriority="high"
-        />
-      </div>
-
       {/* Adaptive gradient overlay for readability */}
       <div
         aria-hidden
-        className="absolute inset-0 z-[1] bg-gradient-to-b from-background/95 via-background/50 to-background light:via-background/70"
+        className="absolute inset-0 z-[1] bg-gradient-to-b from-background/30 via-transparent to-background/50"
       />
 
       {/* Background treatments */}
@@ -49,7 +37,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-30 mx-auto max-w-5xl px-6 lg:px-8">
         {/* Glassmorphic content container */}
-        <div className="rounded-[2rem] border border-border/20 bg-card/15 p-8 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.3)] backdrop-blur-2xl light:bg-white/35 light:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.1)] sm:p-10 md:p-14">
+        <div className="rounded-[2rem] border border-border/20 bg-card/25 p-8 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.3)] backdrop-blur-2xl light:bg-white/35 light:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.1)] sm:p-10 md:p-14">
           <div className="text-center">
             {/* Availability badge */}
             <div
