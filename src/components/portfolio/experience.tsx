@@ -40,7 +40,7 @@ export function Experience() {
           <Reveal as="li" key={r.role} delay={i * 90} className="relative pb-12 last:pb-0">
             <span
               aria-hidden
-              className="absolute top-2 -left-[2.1rem] h-2 w-2 rounded-full bg-primary ring-4 ring-background"
+              className="absolute top-2 -left-[2.1rem] h-2 w-2 rounded-full bg-primary ring-4 ring-primary/15"
             />
             <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
               {r.period}

@@ -7,6 +7,7 @@ import { Projects } from "@/components/portfolio/projects";
 import { Experience } from "@/components/portfolio/experience";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
+import { PageBackground } from "@/components/portfolio/page-background";
 
 const title = "Harsh Muruskar — Java Full Stack Developer";
 const description =
@@ -28,7 +29,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="relative min-h-screen">
+      <PageBackground />
       <Navbar />
       <main>
         <Hero />
