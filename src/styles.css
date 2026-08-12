@@ -145,7 +145,7 @@
 
 /* Apple-style frosted panels */
 @utility glass-panel {
-  background-color: color-mix(in oklab, var(--card) 38%, transparent);
+  background-color: color-mix(in oklab, var(--card) 30%, transparent);
   backdrop-filter: blur(40px) saturate(180%);
   border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
   box-shadow:
