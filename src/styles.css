@@ -100,6 +100,7 @@
 
   body {
     background-color: var(--color-background);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     line-height: 1.7;
@@ -128,8 +129,33 @@
 }
 
 @utility card-soft {
-  background-color: var(--card);
-  box-shadow: var(--shadow-soft);
+  background-color: color-mix(in oklab, var(--card) 45%, transparent);
+  backdrop-filter: blur(28px) saturate(180%);
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--foreground) 8%, transparent) inset,
+    var(--shadow-soft);
+}
+
+/* Apple-style frosted panels */
+@utility glass-panel {
+  background-color: color-mix(in oklab, var(--card) 38%, transparent);
+  backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--foreground) 9%, transparent) inset,
+    var(--shadow-soft);
+}
+
+@utility glass-subtle {
+  background-color: color-mix(in oklab, var(--card) 25%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+}
+
+@utility glass-input {
+  background-color: color-mix(in oklab, var(--card) 30%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
 }
 
 @utility noise-overlay {
