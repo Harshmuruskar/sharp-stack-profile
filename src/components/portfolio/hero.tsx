@@ -1,6 +1,5 @@
 import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
-import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
 
 export function Hero() {
   return (
