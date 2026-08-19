@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
