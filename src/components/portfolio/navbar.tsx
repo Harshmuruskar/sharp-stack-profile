@@ -15,7 +15,7 @@ export function Navbar() {
   const [active, setActive] = useState("about");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [light, setLight] = useState(false);
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -41,11 +41,8 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const toggleTheme = () => {
-    const next = !light;
-    setLight(next);
-    document.documentElement.classList.toggle("light", next);
-  };
+
+
 
   return (
     <header
