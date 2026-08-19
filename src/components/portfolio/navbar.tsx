@@ -83,14 +83,6 @@ export function Navbar() {
         <div className="flex items-center gap-1">
           <button
             type="button"
-            onClick={toggleTheme}
-            aria-label={light ? "Switch to dark mode" : "Switch to light mode"}
-            className="glass-subtle rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {light ? <Moon size={16} /> : <Sun size={16} />}
-          </button>
-          <button
-            type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -99,6 +91,7 @@ export function Navbar() {
             {open ? <X size={16} /> : <Menu size={16} />}
           </button>
         </div>
+
       </nav>
 
       {open && (
