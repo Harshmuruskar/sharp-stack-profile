@@ -8,13 +8,13 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="py-12 px-6 lg:px-12">
-      <div className="bento-card mx-auto flex max-w-[1400px] flex-col gap-6 px-8 py-8 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-12">
+      <div className="bento-card mx-auto flex max-w-[1400px] flex-col items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6 px-5 py-6 sm:px-8 sm:py-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-semibold text-foreground">
+          <p className="text-xs sm:text-sm font-semibold text-foreground">
             © {new Date().getFullYear()} Harsh Muruskar. Designed with Apple Aesthetic Clarity.
           </p>
-          <p className="mt-1 font-mono text-xs font-medium text-muted-foreground">
+          <p className="mt-1 font-mono text-[11px] sm:text-xs font-medium text-muted-foreground">
             Java Full Stack Developer • Spring Boot &amp; React Architect
           </p>
         </div>
@@ -26,7 +26,7 @@ export function Footer() {
                 aria-label={s.label}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel={s.href.startsWith("http") ? "noreferrer" : undefined}
-                className="apple-glass-interactive flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
+                className="apple-glass-interactive flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
               >
                 <s.icon size={16} aria-hidden />
               </a>

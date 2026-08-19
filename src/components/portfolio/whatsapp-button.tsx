@@ -13,7 +13,7 @@ export function WhatsappButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with Harsh on WhatsApp"
-      className="group fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full p-2.5 sm:px-4 sm:py-2.5 shadow-[0_12px_32px_rgba(37,211,102,0.3)] backdrop-blur-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-[#25D366] text-white hover:bg-[#20ba5a] border border-white/20"
+      className="group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 rounded-full p-3 sm:px-4 sm:py-2.5 shadow-[0_12px_32px_rgba(37,211,102,0.35)] backdrop-blur-2xl transition-all duration-300 hover:scale-105 active:scale-95 bg-[#25D366] text-white hover:bg-[#20ba5a] border border-white/20"
     >
       <span className="relative flex h-7 w-7 items-center justify-center rounded-full bg-white/20 shrink-0">
         <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">

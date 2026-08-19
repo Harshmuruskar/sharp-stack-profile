@@ -29,28 +29,28 @@ export function Contact() {
 
   return (
     <Section id="contact" label="Contact" title="Let's connect and build something solid.">
-      <div className="grid gap-8 md:grid-cols-12">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-12">
         <Reveal className="md:col-span-5">
-          <div className="bento-card flex h-full flex-col justify-between p-6 sm:p-8">
+          <div className="bento-card flex h-full flex-col justify-between p-5 sm:p-8">
             <div>
-              <h3 className="text-xl font-bold tracking-tight text-foreground">Get in touch</h3>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">Get in touch</h3>
+              <p className="mt-2.5 sm:mt-3 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                 Open to full-stack engineering roles, backend architecture consulting, and AI-integrated project collaborations.
               </p>
 
-              <ul className="mt-8 space-y-4">
+              <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
                 {LINKS.map((l) => (
                   <li key={l.label}>
                     <a
                       href={l.href}
                       target={l.href.startsWith("http") ? "_blank" : undefined}
                       rel={l.href.startsWith("http") ? "noreferrer" : undefined}
-                      className="group flex items-center gap-3.5 rounded-2xl bg-foreground/4 p-3 border border-border transition-all hover:bg-foreground/8 hover:border-primary/30"
+                      className="group flex items-center gap-3 rounded-2xl bg-foreground/4 p-2.5 sm:p-3 border border-border transition-all hover:bg-foreground/8 hover:border-primary/30"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105">
-                        <l.icon size={16} aria-hidden />
+                      <span className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105 shrink-0">
+                        <l.icon size={15} aria-hidden />
                       </span>
-                      <span className="text-xs font-semibold text-foreground">
+                      <span className="text-[11px] sm:text-xs font-semibold text-foreground truncate">
                         {l.label}
                       </span>
                     </a>
@@ -64,9 +64,9 @@ export function Contact() {
         <Reveal className="md:col-span-7" delay={120}>
           <form
             onSubmit={onSubmit}
-            className="bento-card space-y-5 p-6 sm:p-8"
+            className="bento-card space-y-4 sm:space-y-5 p-5 sm:p-8"
           >
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
               <Field id="name" label="Name" type="text" placeholder="Your name" />
               <Field id="email" label="Email" type="email" placeholder="you@company.com" />
             </div>
@@ -78,14 +78,14 @@ export function Contact() {
                 id="message"
                 name="message"
                 required
-                rows={5}
+                rows={4}
                 placeholder="What project or role are you looking to discuss?"
-                className="w-full resize-none rounded-2xl bg-foreground/4 border border-border px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/30"
+                className="w-full resize-none rounded-2xl bg-foreground/4 border border-border px-4 py-3 text-xs sm:text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/30"
               />
             </div>
             <button
               type="submit"
-              className="apple-button-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide"
+              className="apple-button-primary inline-flex w-full sm:w-auto justify-center items-center gap-2 px-6 py-3 text-xs sm:text-sm font-semibold tracking-wide"
             >
               {sent ? (
                 <>

@@ -42,16 +42,16 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 sm:px-6 pt-4 transition-all duration-300">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
       <nav
         aria-label="Primary"
         className={cn(
-          "mx-auto flex h-12 w-full max-w-[1400px] items-center justify-between rounded-full px-5 transition-all duration-300 apple-glass"
+          "mx-auto flex h-12 w-full max-w-[1400px] items-center justify-between rounded-full px-4 sm:px-6 transition-all duration-300 apple-glass"
         )}
       >
         <a
           href="#top"
-          className="group flex items-center gap-2 px-2 text-xs font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="group flex items-center gap-2 px-1 text-xs font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
         >
           <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform group-hover:scale-105">
             <Command size={13} />
@@ -85,7 +85,7 @@ export function Navbar() {
         </ul>
 
         {/* Action Buttons & Theme Toggle */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Apple Light/Dark Mode Toggle Button */}
           <button
             type="button"
@@ -120,23 +120,38 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Overlay */}
       {open && (
-        <div className="absolute top-18 inset-x-4 mx-auto max-w-sm rounded-2xl apple-glass p-4 md:hidden">
-          <ul className="flex flex-col space-y-1">
-            {SECTIONS.map((s) => (
-              <li key={s.id}>
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-xs md:hidden"
+            onClick={() => setOpen(false)}
+          />
+          <div className="absolute top-16 inset-x-4 z-50 mx-auto max-w-sm rounded-3xl apple-glass p-4 border border-border shadow-soft md:hidden">
+            <ul className="flex flex-col space-y-1">
+              {SECTIONS.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href={`#${s.id}`}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                  >
+                    <span>{s.label}</span>
+                  </a>
+                </li>
+              ))}
+              <li className="pt-2 border-t border-border">
                 <a
-                  href={`#${s.id}`}
+                  href="#contact"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+                  className="flex items-center justify-center rounded-2xl apple-button-primary px-4 py-2.5 text-sm font-semibold text-white"
                 >
-                  <span>{s.label}</span>
+                  Connect With Me
                 </a>
               </li>
-            ))}
-          </ul>
-        </div>
+            </ul>
+          </div>
+        </>
       )}
     </header>
   );

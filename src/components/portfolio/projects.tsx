@@ -1,4 +1,6 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Github, ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { BrandIcon } from "./brand-icon";
 import { Reveal } from "./reveal";
 import { Section } from "./section";
@@ -61,10 +63,13 @@ const PROJECTS = [
 ];
 
 export function Projects() {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, 3);
+
   return (
     <Section id="projects" label="Projects" title="Selected engineering work.">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PROJECTS.map((p, i) => (
+        {visibleProjects.map((p, i) => (
           <Reveal key={p.name} delay={i * 70}>
             <article className="bento-card group flex h-full flex-col justify-between p-6 transition-all duration-300">
               <div>
@@ -113,6 +118,22 @@ export function Projects() {
           </Reveal>
         ))}
       </div>
+
+      {PROJECTS.length > 3 && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            className="apple-glass-interactive inline-flex items-center gap-2 rounded-full px-7 py-3 text-xs sm:text-sm font-semibold text-foreground border-border shadow-sm transition-all hover:scale-105"
+          >
+            <span>{showAll ? "Show Less" : "View More Projects"}</span>
+            <ChevronDown
+              size={16}
+              className={cn("transition-transform duration-300", showAll && "rotate-180")}
+            />
+          </button>
+        </div>
+      )}
     </Section>
   );
 }
