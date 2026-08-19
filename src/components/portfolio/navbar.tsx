@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
@@ -14,7 +15,7 @@ export function Navbar() {
   const [active, setActive] = useState("about");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [light, setLight] = useState(false);
+  
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -40,11 +41,8 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const toggleTheme = () => {
-    const next = !light;
-    setLight(next);
-    document.documentElement.classList.toggle("light", next);
-  };
+
+
 
   return (
     <header
@@ -83,14 +81,6 @@ export function Navbar() {
         <div className="flex items-center gap-1">
           <button
             type="button"
-            onClick={toggleTheme}
-            aria-label={light ? "Switch to dark mode" : "Switch to light mode"}
-            className="glass-subtle rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {light ? <Moon size={16} /> : <Sun size={16} />}
-          </button>
-          <button
-            type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -99,6 +89,7 @@ export function Navbar() {
             {open ? <X size={16} /> : <Menu size={16} />}
           </button>
         </div>
+
       </nav>
 
       {open && (
