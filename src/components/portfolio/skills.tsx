@@ -6,9 +6,9 @@ import { Section } from "./section";
 const GROUPS = [
   {
     icon: Boxes,
-    title: "Backend",
+    title: "Backend Architecture",
     items: [
-      "Java",
+      "Java 21",
       "Spring Boot",
       "Spring AI",
       "Spring Security",
@@ -22,50 +22,57 @@ const GROUPS = [
   },
   {
     icon: Layout,
-    title: "Frontend",
+    title: "Frontend Engineering",
     items: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
   },
   {
     icon: Database,
-    title: "Databases",
+    title: "Databases & Search",
     items: ["MySQL", "PostgreSQL", "MongoDB", "NeonDB", "Elasticsearch"],
   },
   {
     icon: Wrench,
-    title: "Tools & Platforms",
+    title: "Tools & DevOps",
     items: ["Docker", "Git", "GitHub", "Maven", "Postman", "IntelliJ"],
   },
   {
     icon: Cpu,
-    title: "AI / Dev Tooling",
+    title: "AI Ecosystem",
     items: ["Claude Code", "Google AI Studio", "Google Antigravity", "Lovable", "Bolt", "Google Stitch"],
   },
 ];
 
 export function Skills() {
   return (
-    <Section id="skills" label="Skills" title="The stack I reach for.">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <Section id="skills" label="Skills" title="Full-stack technology matrix.">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {GROUPS.map((g, i) => (
-          <Reveal key={g.title} delay={i * 70} className={i === 0 ? "sm:col-span-2" : ""}>
-            <article className="card-soft group h-full rounded-xl border border-border p-6 transition-colors duration-300 hover:border-primary/40">
-              <div className="flex items-center gap-3">
-                <span className="glass-subtle rounded-md p-2 text-primary transition-colors group-hover:border-primary/40">
-                  <g.icon size={16} aria-hidden />
-                </span>
-                <h3 className="text-sm font-medium tracking-tight">{g.title}</h3>
+          <Reveal
+            key={g.title}
+            delay={i * 70}
+            className={i === 0 ? "sm:col-span-2 lg:col-span-2" : ""}
+          >
+            <article className="bento-card group flex h-full flex-col justify-between p-6">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary border border-border transition-transform group-hover:scale-110">
+                    <g.icon size={18} aria-hidden />
+                  </span>
+                  <h3 className="text-base font-bold text-foreground tracking-tight">{g.title}</h3>
+                </div>
+
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {g.items.map((item) => (
+                    <li
+                      key={item}
+                      className="apple-glass-interactive flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold text-foreground"
+                    >
+                      <BrandIcon name={item} size={14} className="shrink-0 opacity-90" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {g.items.map((item) => (
-                  <li
-                    key={item}
-                    className="glass-subtle flex items-center gap-2 rounded-md px-3 py-1.5 text-xs text-secondary-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-                  >
-                    <BrandIcon name={item} size={14} className="shrink-0 opacity-90" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </article>
           </Reveal>
         ))}
@@ -73,3 +80,6 @@ export function Skills() {
     </Section>
   );
 }
+
+
+

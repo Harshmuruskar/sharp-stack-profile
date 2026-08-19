@@ -8,6 +8,7 @@ import { Experience } from "@/components/portfolio/experience";
 import { Contact } from "@/components/portfolio/contact";
 import { Footer } from "@/components/portfolio/footer";
 import { PageBackground } from "@/components/portfolio/page-background";
+import { WhatsappButton } from "@/components/portfolio/whatsapp-button";
 
 const title = "Harsh Muruskar — Java Full Stack Developer";
 const description =
@@ -41,6 +42,8 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <WhatsappButton />
     </div>
   );
 }
+

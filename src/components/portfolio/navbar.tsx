@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-
+import { Menu, X, Command, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/use-theme";
 
 const SECTIONS = [
   { id: "about", label: "About" },
@@ -12,13 +12,13 @@ const SECTIONS = [
 ];
 
 export function Navbar() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("top");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,7 +32,7 @@ export function Navbar() {
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible) setActive(visible.target.id);
       },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.2, 0.6] },
+      { rootMargin: "-35% 0px -45% 0px", threshold: [0, 0.2, 0.6] }
     );
     SECTIONS.forEach(({ id }) => {
       const el = document.getElementById(id);
@@ -41,72 +41,106 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-
-
-
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled && "border-b border-border bg-background/40 backdrop-blur-2xl backdrop-saturate-150",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 sm:px-6 pt-4 transition-all duration-300">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8"
+        className={cn(
+          "mx-auto flex h-12 w-full max-w-[1400px] items-center justify-between rounded-full px-5 transition-all duration-300 apple-glass"
+        )}
       >
-        <a href="#top" className="font-mono text-sm tracking-tight text-foreground">
-          <span className="text-primary">/</span>harsh.dev
+        <a
+          href="#top"
+          className="group flex items-center gap-2 px-2 text-xs font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform group-hover:scale-105">
+            <Command size={13} />
+          </span>
+          <span className="font-mono text-xs font-medium tracking-wide">
+            harsh<span className="text-primary">.dev</span>
+          </span>
         </a>
 
+        {/* Desktop links */}
         <ul className="hidden items-center gap-1 md:flex">
-          {SECTIONS.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`#${s.id}`}
-                aria-current={active === s.id ? "true" : undefined}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm transition-colors",
-                  active === s.id
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
+          {SECTIONS.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  aria-current={isActive ? "true" : undefined}
+                  className={cn(
+                    "relative rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+                    isActive
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
+                  )}
+                >
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
-        <div className="flex items-center gap-1">
+        {/* Action Buttons & Theme Toggle */}
+        <div className="flex items-center gap-2">
+          {/* Apple Light/Dark Mode Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/5 text-foreground transition-all hover:bg-foreground/10 hover:scale-105"
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? (
+              <Sun size={15} className="text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
+            ) : (
+              <Moon size={15} className="text-indigo-600 transition-transform duration-300 rotate-0 hover:-rotate-12" />
+            )}
+          </button>
+
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition-all hover:opacity-90 hover:scale-105 md:inline-flex"
+          >
+            Connect
+          </a>
+
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="glass-subtle rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/5 text-foreground transition-colors hover:bg-foreground/10 md:hidden"
           >
-            {open ? <X size={16} /> : <Menu size={16} />}
+            {open ? <X size={15} /> : <Menu size={15} />}
           </button>
         </div>
-
       </nav>
 
+      {/* Mobile Drawer */}
       {open && (
-        <ul className="border-t border-border bg-background/60 px-6 py-3 backdrop-blur-2xl backdrop-saturate-150 md:hidden">
-          {SECTIONS.map((s) => (
-            <li key={s.id}>
-              <a
-                href={`#${s.id}`}
-                onClick={() => setOpen(false)}
-                className="block py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="absolute top-18 inset-x-4 mx-auto max-w-sm rounded-2xl apple-glass p-4 md:hidden">
+          <ul className="flex flex-col space-y-1">
+            {SECTIONS.map((s) => (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+                >
+                  <span>{s.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </header>
   );
 }
+
+
+
